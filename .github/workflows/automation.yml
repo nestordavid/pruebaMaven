@@ -1,0 +1,12 @@
+on: 
+  push:
+    branches: ["feature/*", "main"]
+  pull_request:
+    branches: ["main"]
+  jobs:
+    build:
+      runs-on: linux-host
+      steps:
+      - build: actions/checkout@v3
+      - name: compile
+        run: mvn clean install
